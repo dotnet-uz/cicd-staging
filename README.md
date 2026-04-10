@@ -1,2 +1,1 @@
-# cicd-staging
-CI/CD Staging
+# CI/CD Staging
