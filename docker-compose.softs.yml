@@ -3,7 +3,7 @@ services:
     image: gitlab/gitlab-ce:latest
     container_name: gitlab
     restart: always
-    hostname: gitlab
+    hostname: localhost
     ports:
       - "8081:80"
       - "2222:22"
