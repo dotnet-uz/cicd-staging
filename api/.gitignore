@@ -1,0 +1,61 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.out
+app
+
+# Test binaries
+*.test
+
+# Coverage
+*.cover
+coverage.out
+
+# Go workspace
+go.work
+go.work.sum
+
+# Dependency directories (optional)
+vendor/
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Build folders
+bin/
+dist/
+
+# Temporary files
+tmp/
+temp/
+
+# Jenkins
+jenkins_home/
+
+# Node (agar frontend bo‘lsa)
+node_modules/
+
+# PostgreSQL data (agar local bo‘lsa)
+postgres_data/

@@ -1,0 +1,46 @@
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    container_name: gitlab
+    restart: always
+    hostname: gitlab
+    ports:
+      - "8081:80"
+      - "2222:22"
+    mem_limit: 4g
+    environment:
+      TZ: Asia/Tashkent
+      LANG: en_US.UTF-8
+      LC_ALL: en_US.UTF-8
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://localhost:8081'
+        gitlab_rails['gitlab_shell_ssh_port'] = 2222
+        gitlab_rails['initial_root_password'] = 'mo7jcscC89OahnN9'
+        puma['worker_processes'] = 0
+        sidekiq['concurrency'] = 5
+        postgresql['shared_buffers'] = "128MB"
+    volumes:
+      - gitlab_config:/etc/gitlab
+      - gitlab_logs:/var/log/gitlab
+      - gitlab_data:/var/opt/gitlab
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    restart: always
+    ports:
+      - "8082:8080"
+      - "50001:50000"
+    mem_limit: 2g
+    environment:
+      TZ: Asia/Tashkent
+      LANG: en_US.UTF-8
+      LC_ALL: en_US.UTF-8
+    volumes:
+      - jenkins_home:/var/jenkins_home
+
+volumes:
+  gitlab_config:
+  gitlab_logs:
+  gitlab_data:
+  jenkins_home:
